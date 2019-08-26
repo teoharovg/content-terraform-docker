@@ -17,7 +17,7 @@ node {
             sh label: 'terraform apply', script: "terraform apply -lock=false -input=false tfplan"
    }
 }
-    if(action == "Destroy"){
+    if(action == 'Destroy'){
         stage('plan_destroy') {
             sh label:'terraform plan destroy', script: "terraform plan -destroy -out=tfdestroyplan -input=false -var image_name=${image_name} -var ext_port=${ext_port}"
         }
